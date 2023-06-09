@@ -3,6 +3,7 @@ package com.dba.iplugform;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -52,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
                 {
                     Toast msg = Toast.makeText(this,"Granted!",Toast.LENGTH_LONG);
                     msg.show();
+                    Intent intent = new Intent(MainActivity.this, iplugWEBvisor.class);
+                    startActivity(intent);
                 }
             }
             else
