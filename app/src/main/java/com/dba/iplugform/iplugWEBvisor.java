@@ -19,20 +19,7 @@ public class iplugWEBvisor extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_iplug_webvisor);
-        webview = (WebView) findViewById(R.id.visoriPlugandForm);
-        //setContentView(webview);
-        webview.setWebViewClient(new WebViewClient());
 
-        urlButton = findViewById(R.id.buttonURL);
-        urlButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                path = (EditText) findViewById(R.id.textBoxURL);
-                url= path.getText().toString();
-                webview.loadUrl("http://"+url);
-            }
-        });
-        webview.loadUrl("http://"+url);
 
     }
 }

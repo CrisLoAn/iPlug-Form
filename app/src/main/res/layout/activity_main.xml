@@ -37,16 +37,16 @@
 
     <EditText
         android:id="@+id/passwordTextBox"
-        android:layout_width="307dp"
-        android:layout_height="78dp"
-        android:layout_marginStart="50dp"
+        android:layout_width="311dp"
+        android:layout_height="68dp"
+        android:layout_marginStart="52dp"
         android:layout_marginTop="36dp"
-        android:layout_marginEnd="54dp"
+        android:layout_marginEnd="52dp"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userNameTextBox" />
 
@@ -65,5 +65,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordTextBox"
         app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="35dp"
+        android:layout_height="83dp"
+        android:layout_marginStart="360dp"
+        android:layout_marginEnd="26dp"
+        android:text="."
+        android:textColor="@color/green"
+        android:textSize="32pt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="-33dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
