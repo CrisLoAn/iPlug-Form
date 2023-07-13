@@ -1,8 +1,10 @@
-package com.dba.iplugform;
+package com.dba.iplugform.domain;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.dba.iplugform.R;
 
 public class ProductRegister extends AppCompatActivity {
 

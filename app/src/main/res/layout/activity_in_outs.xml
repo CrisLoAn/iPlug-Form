@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".domain.InOuts"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Historial de ingreso y sálida de productos"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="376dp"
+        android:layout_height="38dp"
+        android:text="Desde aquí puedes consultar los ingresos y sálidas de productos" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayOut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark">
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabEntradas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Entradas" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabSalidas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Salidas" />
+
+    </com.google.android.material.tabs.TabLayout>
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </androidx.viewpager.widget.ViewPager>
+
+</LinearLayout>

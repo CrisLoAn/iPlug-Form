@@ -16,13 +16,16 @@
         android:theme="@style/Theme.IPlugForm"
         tools:targetApi="31">
         <activity
-            android:name=".InventarioGestion"
+            android:name=".domain.InOuts"
             android:exported="false" />
         <activity
-            android:name=".ProductRegister"
+            android:name=".domain.InventarioGestion"
             android:exported="false" />
         <activity
-            android:name=".iplugWEBvisor"
+            android:name=".domain.ProductRegister"
+            android:exported="false" />
+        <activity
+            android:name=".domain.iplugWEBvisor"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

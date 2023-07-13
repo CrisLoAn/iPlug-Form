@@ -5,4 +5,6 @@
     <color name="green">#00853C</color>
     <color name="red">#CF010B</color>
     <color name="caja">#AD8762</color>
+    <color name="colorPrimaryDark">#6f8f72</color>
+    <color name="colorPrimary">#77ad78</color>
 </resources>

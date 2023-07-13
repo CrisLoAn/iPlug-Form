@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dba.iplugform.Data.DBHelper;
+import com.dba.iplugform.domain.iplugWEBvisor;
 
 public class MainActivity extends AppCompatActivity {
     private boolean status=true;

@@ -7,7 +7,7 @@
         android:background="@drawable/table_row_selector">
 
     <TextView
-        android:id="@+id/colId"
+        android:id="@+id/colIdio"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"

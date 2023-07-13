@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".domain.Salidas">
+
+    <ScrollView
+        android:id="@+id/scrollviewSal"
+        android:layout_width="match_parent"
+        android:layout_height="637dp"
+        android:contentDescription="Contenido de desplazamiento">
+
+
+        <TableLayout
+            android:id="@+id/tbSalidas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/imgSalidas"
+        android:layout_width="80dp"
+        android:layout_height="73dp"
+        android:layout_gravity="bottom"
+        android:src="@drawable/carro_de_la_carretilla" />
+
+</FrameLayout>

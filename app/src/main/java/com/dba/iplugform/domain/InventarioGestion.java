@@ -1,8 +1,7 @@
-package com.dba.iplugform;
+package com.dba.iplugform.domain;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -13,6 +12,8 @@ import android.widget.ScrollView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+
+import com.dba.iplugform.R;
 
 public class InventarioGestion extends AppCompatActivity {
     EditText txtId = null;
@@ -26,13 +27,13 @@ public class InventarioGestion extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inventario_gestion);
         tbProducto = findViewById(R.id.tblRow);
-        ScrollView scrollView = findViewById(R.id.scrollView);
+        ScrollView scrollView = findViewById(R.id.scrollViewEntradas);
         if(tbProducto!=null)
         {
             tbProducto.removeAllViews();
             for(int i=0;i<15;i++) {
                 View registro = LayoutInflater.from(this).inflate(R.layout.table_row, null, false);
-                TextView colId = registro.findViewById(R.id.colId);
+                TextView colId = registro.findViewById(R.id.colIdio);
                 TextView colNombre = registro.findViewById(R.id.colNombre);
                 TextView colDesc = registro.findViewById(R.id.colDesc);
                 TextView colProvedor = registro.findViewById(R.id.colProv);
@@ -53,7 +54,7 @@ public class InventarioGestion extends AppCompatActivity {
         });
         //Implemento la funcion de busqueda propia del textbox de buscar
         EditText searchEditText = findViewById(R.id.searchTextBox);
-        TextView textView1 = tbProducto.findViewById(R.id.colId);
+        TextView textView1 = tbProducto.findViewById(R.id.colIdio);
         TextView textView2 = tbProducto.findViewById(R.id.colNombre);
         TextView textView3 = tbProducto.findViewById(R.id.colDesc);
         TextView textView4 = tbProducto.findViewById(R.id.colProv);
