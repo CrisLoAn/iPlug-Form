@@ -1,11 +1,8 @@
 package com.dba.iplugform;
 
-import static com.dba.iplugform.R.id.textView2;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -20,10 +17,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dba.iplugform.Data.DBHelper;
-import com.dba.iplugform.domain.NetworkUtils;
 
 public class MainActivity extends AppCompatActivity {
-
+    private boolean status=true;
     EditText user, password;
     Button longin;
     String Title = "Login";
@@ -44,52 +40,7 @@ public class MainActivity extends AppCompatActivity {
                 session(v);
             }
         });
-
-        TextView colorConexion = findViewById(R.id.textView2);
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                boolean isConnected = false; // Variable para seguir el estado de la conectividad
-                while (true) {
-                    // Verificar la conectividad y establecer el color en consecuencia
-                    ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-                    NetworkInfo[] networkInfoArray = cm.getAllNetworkInfo();
-                    for (NetworkInfo networkInfo : networkInfoArray) {
-                        if (networkInfo.getTypeName().equalsIgnoreCase("WIFI") && networkInfo.isConnected()) {
-                            isConnected = true;
-                            break;
-                        } else if (networkInfo.getTypeName().equalsIgnoreCase("MOBILE") && networkInfo.isConnected()) {
-                            isConnected = true;
-                            break;
-                        } else {
-                            isConnected = false;
-                        }
-                    }
-
-                    // Establecer el color de acuerdo al estado de la conectividad
-                    boolean finalIsConnected = isConnected;
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (finalIsConnected) {
-                                colorConexion.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.green));
-                            } else {
-                                colorConexion.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.red));
-                            }
-                        }
-                    });
-
-                    try {
-                        Thread.sleep(1000); // Esperar 1 segundo antes de volver a verificar la conectividad
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        });
-
-        thread.start();
-
+        internetStatus();
     }
 
     public void session(View v)
@@ -122,5 +73,55 @@ public class MainActivity extends AppCompatActivity {
             msg.show();
         }
         db.close();
+    }
+
+    private void internetStatus()
+    {
+        TextView colorConexion = findViewById(R.id.textView2);
+        Thread thread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                boolean isConnected = false; // Variable para seguir el estado de la conectividad
+                while (true) {
+                    // Verificar la conectividad y establecer el color en consecuencia
+                    ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+                    NetworkInfo[] networkInfoArray = cm.getAllNetworkInfo();
+                    for (NetworkInfo networkInfo : networkInfoArray) {
+                        if (networkInfo.getTypeName().equalsIgnoreCase("WIFI") && networkInfo.isConnected()) {
+                            isConnected = true;
+                            break;
+                        } else if (networkInfo.getTypeName().equalsIgnoreCase("MOBILE") && networkInfo.isConnected()) {
+                            isConnected = true;
+                            break;
+                        } else {
+                            isConnected = false;
+                        }
+                    }
+
+                    // Establecer el color de acuerdo al estado de la conectividad
+                    boolean finalIsConnected = isConnected;
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            if (finalIsConnected) {
+                                colorConexion.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.green));
+                                status = true;
+                            } else {
+                                colorConexion.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.red));
+                                status = false;
+                            }
+                        }
+                    });
+
+                    try {
+                        Thread.sleep(1000); // Esperar 1 segundo antes de volver a verificar la conectividad
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
+
+        thread.start();
     }
 }

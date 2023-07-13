@@ -68,16 +68,30 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="35dp"
-        android:layout_height="83dp"
+        android:layout_width="36dp"
+        android:layout_height="124dp"
         android:layout_marginStart="360dp"
         android:layout_marginEnd="26dp"
+        android:enabled="false"
+        android:gravity="center|center_vertical"
         android:text="."
+        android:textAlignment="center"
         android:textColor="@color/green"
-        android:textSize="32pt"
+        android:textSize="40pt"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.09"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="-33dp" />
+        tools:layout_editor_absoluteY="-12dp"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="161dp"
+        android:layout_height="205dp"
+        android:layout_marginTop="88dp"
+        android:layout_marginEnd="248dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logInButton"
+        app:srcCompat="@drawable/p" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
