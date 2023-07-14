@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.dba.iplugform.Data.DBHelper;
+import com.dba.iplugform.Data.DatabaseSync;
 import com.dba.iplugform.domain.iplugWEBvisor;
 
 public class MainActivity extends AppCompatActivity {
@@ -46,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void session(View v)
     {
-        DBHelper admin = new DBHelper(this, "dipfb",null,1);
+        DBHelper admin = new DBHelper(this, "boxs",null,1);
         SQLiteDatabase db = admin.getWritableDatabase();
         String USERNAME = user.getText().toString();
         String USERPASSWORD = password.getText().toString();
@@ -73,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
             Toast msg = Toast.makeText(this,"Something wrong happens!",Toast.LENGTH_LONG);
             msg.show();
         }
-        db.close();
+        //db.close();
     }
 
     private void internetStatus()
@@ -106,7 +107,8 @@ public class MainActivity extends AppCompatActivity {
                         public void run() {
                             if (finalIsConnected) {
                                 colorConexion.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.green));
-                                status = true;
+                                status = true;// Llamar al método de sincronización
+
                             } else {
                                 colorConexion.setTextColor(ContextCompat.getColor(getApplicationContext(), R.color.red));
                                 status = false;

@@ -2,6 +2,10 @@ package com.dba.iplugform.domain;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -28,6 +32,7 @@ public class InventarioGestion extends AppCompatActivity {
         setContentView(R.layout.activity_inventario_gestion);
         tbProducto = findViewById(R.id.tblRow);
         ScrollView scrollView = findViewById(R.id.scrollViewEntradas);
+        /*
         if(tbProducto!=null)
         {
             tbProducto.removeAllViews();
@@ -45,7 +50,8 @@ public class InventarioGestion extends AppCompatActivity {
                 colTipo.setText("Tipo " + i);
                 tbProducto.addView(registro);
             }
-        }
+        }*/
+        llenarTabla();
         tbProducto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -106,5 +112,30 @@ public class InventarioGestion extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void llenarTabla() {
+        SQLiteDatabase baseDatos = this.openOrCreateDatabase("boxs", Context.MODE_PRIVATE, null);
+        Cursor fila = baseDatos.rawQuery("SELECT P.id_producto, P.nombre_producto, P.cantidad_producto, P.id_proveedor, P.id_categoria_producto FROM producto P", null);
+        fila.moveToFirst();
+
+        do {
+            View registro = LayoutInflater.from(this).inflate(R.layout.table_row, null, false);
+            TextView CodigoProd = registro.findViewById(R.id.colIdio);
+            TextView prodName = registro.findViewById(R.id.colNombre);
+            TextView prodCant = registro.findViewById(R.id.colDesc);
+            TextView idProv = registro.findViewById(R.id.colProv);
+            TextView idTipo = registro.findViewById(R.id.colTipo);
+
+            CodigoProd.setText(fila.getString(0));
+            prodName.setText(fila.getString(1));
+            prodCant.setText(fila.getString(2));
+            idTipo.setText(fila.getString(3));
+            idProv.setText(fila.getString(4));
+            tbProducto.addView(registro);
+        } while (fila.moveToNext());
+
+        fila.close();
+        baseDatos.close();
     }
 }

@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.dba.iplugform.Data.DatabaseSync;
 import com.dba.iplugform.R;
 
 public class iplugWEBvisor extends AppCompatActivity {
@@ -54,7 +55,8 @@ public class iplugWEBvisor extends AppCompatActivity {
         exitOperation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                System.exit(0);
+                DatabaseSync syncManager = new DatabaseSync(getApplicationContext());
+                syncManager.syncData();
             }
         });
     }
